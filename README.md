@@ -4,6 +4,14 @@ A collection of simple security tools built for personal use and real-world bug 
 
 These tools were developed to help with vulnerability research, testing, and exploitation. Some of them have been used successfully during real-world security research to identify and exploit vulnerabilities.
 
+## Public Release
+
+Some tools and PoCs have been sanitized and slightly modified for public release.
+
+Target-specific details, implementation-specific parameters, credentials, session data, and other sensitive information have been removed or replaced with placeholders to avoid exposing information from real-world targets.
+
+The core functionality and techniques have been preserved where possible.
+
 ## Purpose
 
 This repository contains tools that I personally built, tested, and used during security research.
