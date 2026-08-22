@@ -18,6 +18,8 @@ This repository contains tools that I personally built, tested, and used during 
 
 The goal is not to create full-featured scanners, but to build small and practical tools that solve specific problems encountered while hunting vulnerabilities.
 
+Some tools may not directly contribute to exploitation. They are utility tools designed to make parts of the workflow — such as recon, enumeration, filtering, data processing, and exploit preparation — faster and more efficient.
+
 ## Disclaimer
 
 These tools are provided for educational and authorized security testing purposes only.
