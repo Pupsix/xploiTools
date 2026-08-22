@@ -6,22 +6,24 @@ HTTP probing.
 
 ## Required
 
-- `subfinder`
+The following tools are required for `subenum`:
+
+- `subfinder` — passive subdomain enumeration
+- `dnsx` — DNS resolution
+- `ffuf` — subdomain fuzzing
+- `naabu` — port scanning
 
 ## Optional
 
-- `chaos-client`
-- `asnmap`
+The following tools are optional:
 
-## Active Mode
+- `chaos-client` — additional passive subdomain enumeration
+- `asnmap` — ASN and CIDR mapping
+- `httpx` — HTTP service probing, enabled with `--httpx`
 
-The following tools are required when using `-a`:
-
-- `dnsx`
-- `ffuf`
-- `naabu`
-
-`httpx` is optional and is only used when `--httpx` is provided.
+> `chaos-client` and `asnmap` are optional because `subenum` can
+> continue without them. If they are unavailable or not configured,
+> the corresponding steps are skipped.
 
 ## Third-Party Tool Usage
 
@@ -33,17 +35,15 @@ behavior of the underlying third-party tools.
 
 ### Tools Used
 
-```
-| Tool            | Purpose                              | Required    |
-|-----------------|--------------------------------------|-------------|
-| subfinder       | Passive subdomain enumeration        | Yes         |
-| chaos-client    | Chaos passive subdomain enumeration  | Optional    |
-| asnmap          | ASN and CIDR mapping                 | Optional    |
-| dnsx            | DNS resolution                       | Active mode |
-| ffuf            | Subdomain fuzzing                    | Active mode |
-| naabu           | Port scanning                        | Active mode |
-| httpx           | HTTP service probing                 | --httpx     |
-```
+| Tool           | Purpose                            | Status   |
+|----------------|------------------------------------|----------|
+| `subfinder`    | Passive subdomain enumeration      | Required |
+| `chaos-client` | Additional passive enumeration     | Optional |
+| `asnmap`       | ASN and CIDR mapping               | Optional |
+| `dnsx`         | DNS resolution                     | Required |
+| `ffuf`         | Subdomain fuzzing                  | Required |
+| `naabu`        | Port scanning                      | Required |
+| `httpx`        | HTTP service probing               | Optional |
 
 ## Chaos API Key
 
@@ -74,7 +74,6 @@ ASN mapping is skipped.
 
 ## Usage
 
-`
 ╔══════════╦════════════════════════════════════════════════════════════════╗
 ║ Flags    ║ Description                                                    ║
 ╠══════════╬════════════════════════════════════════════════════════════════╣
@@ -84,7 +83,7 @@ ASN mapping is skipped.
 ╠══════════╬════════════════════════════════════════════════════════════════╣
 ║ -r       ║ Rate limit (requests/second, default: 0)                       ║
 ╠══════════╬════════════════════════════════════════════════════════════════╣
-║ -d       ║ Delay between requests (seconds, default: 0)                   ║
+║ -d       ║ Delay between requests (seconds, default: 0)                    ║
 ╠══════════╬════════════════════════════════════════════════════════════════╣
 ║ -T       ║ Request timeout (seconds, default: 5)                          ║
 ╠══════════╬════════════════════════════════════════════════════════════════╣
@@ -100,4 +99,3 @@ ASN mapping is skipped.
 ╠══════════╬════════════════════════════════════════════════════════════════╣
 ║ -h       ║ Show this help message                                         ║
 ╚══════════╩════════════════════════════════════════════════════════════════╝
-`
